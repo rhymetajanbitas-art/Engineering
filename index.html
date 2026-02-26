@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Explorer Hub | Discover, Design, Build</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+    <nav class="bg-slate-900 text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-tight">ENGINEERING <span class="text-blue-400">EXPLORER</span></h1>
+            <div class="hidden md:flex space-x-6 text-sm uppercase font-semibold">
+                <a href="#fields" class="hover:text-blue-400">Fields</a>
+                <a href="#projects" class="hover:text-blue-400">Projects</a>
+                <a href="#careers" class="hover:text-blue-400">Careers</a>
+                <a href="#contact" class="hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="gradient-bg text-white py-24 px-6 text-center">
+        <h2 class="text-5xl font-extrabold mb-4">Discover, Design, and Build</h2>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+            Empowering the next generation of innovators through hands-on engineering and real-world problem solving.
+        </p>
+        <div class="flex justify-center gap-4">
+            <button class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-bold">Start Designing</button>
+            <button class="border border-white hover:bg-white hover:text-slate-900 px-8 py-3 rounded-full font-bold transition">Explore Projects</button>
+        </div>
+    </header>
+
+    <section id="fields" class="container mx-auto py-20 px-6">
+        <h3 class="text-3xl font-bold mb-12 text-center underline decoration-blue-500">Engineering Disciplines</h3>
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500 card-hover">
+                <i class="fas fa-city text-3xl text-blue-500 mb-4"></i>
+                <h4 class="font-bold text-lg mb-2">Civil</h4>
+                <p class="text-sm text-gray-600">Infrastructure, bridges, and the backbone of modern cities.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-orange-500 card-hover">
+                <i class="fas fa-cog text-3xl text-orange-500 mb-4"></i>
+                <h4 class="font-bold text-lg mb-2">Mechanical</h4>
+                <p class="text-sm text-gray-600">Dynamics, machines, and moving systems in motion.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-500 card-hover">
+                <i class="fas fa-bolt text-3xl text-yellow-500 mb-4"></i>
+                <h4 class="font-bold text-lg mb-2">Electrical</h4>
+                <p class="text-sm text-gray-600">Circuits, electronics, and power distribution systems.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-green-500 card-hover">
+                <i class="fas fa-robot text-3xl text-green-500 mb-4"></i>
+                <h4 class="font-bold text-lg mb-2">Robotics</h4>
+                <p class="text-sm text-gray-600">Automation, AI integration, and futuristic hardware.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="bg-gray-100 py-20 px-6">
+        <div class="container mx-auto">
+            <h3 class="text-3xl font-bold mb-12">Build Activities</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white overflow-hidden rounded-lg shadow-lg">
+                    <div class="bg-slate-700 h-48 flex items-center justify-center text-white">
+                        <i class="fas fa-bridge fa-3x"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded">BEGINNER</span>
+                        <h4 class="text-xl font-bold mt-2">The Bridge Challenge</h4>
+                        <p class="text-gray-600 mt-2 text-sm">Build a structure capable of holding 5kg using only popsicle sticks.</p>
+                        <button class="mt-4 text-blue-600 font-semibold" onclick="alert('Materials: Sticks, Glue, Weight. \nStep 1: Design Truss.')">View Tutorial →</button>
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden rounded-lg shadow-lg">
+                    <div class="bg-slate-700 h-48 flex items-center justify-center text-white">
+                        <i class="fas fa-microchip fa-3x"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold bg-orange-100 text-orange-700 px-2 py-1 rounded">ADVANCED</span>
+                        <h4 class="text-xl font-bold mt-2">Logic Gate Controller</h4>
+                        <p class="text-gray-600 mt-2 text-sm">Design a custom circuit board to handle basic binary operations.</p>
+                        <button class="mt-4 text-blue-600 font-semibold">View Tutorial →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="careers" class="container mx-auto py-20 px-6">
+        <h3 class="text-3xl font-bold mb-10">Career Pathways</h3>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse bg-white shadow-md rounded-lg">
+                <thead>
+                    <tr class="bg-slate-900 text-white">
+                        <th class="p-4">Role</th>
+                        <th class="p-4">Primary Skills</th>
+                        <th class="p-4">Education</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b">
+                        <td class="p-4 font-bold">Civil Engineer</td>
+                        <td class="p-4">AutoCAD, Physics, Calculus</td>
+                        <td class="p-4 text-gray-600">B.S. in Civil Engineering</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td class="p-4 font-bold">Robotics Engineer</td>
+                        <td class="p-4">C++, ROS, Electronics</td>
+                        <td class="p-4 text-gray-600">B.S. in Mechatronics</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-slate-900 text-white py-16 px-6">
+        <div class="container mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+                <h4 class="text-2xl font-bold mb-4">Get In Touch</h4>
+                <p class="text-gray-400 mb-6">Have a question about a project? Reach out to our team.</p>
+                <div class="space-y-4">
+                    <p><i class="fas fa-envelope mr-3 text-blue-400"></i> Epsteinfiles@gmail.com</p>
+                    <p><i class="fas fa-phone mr-3 text-blue-400"></i> +63676767676</p>
+                    <p><i class="fas fa-map-marker-alt mr-3 text-blue-400"></i> End, St. Thomas, U.S. Virgin Islands</p>
+                </div>
+            </div>
+            <form class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-slate-800 border border-slate-700 text-white">
+                <textarea placeholder="Your Message" class="w-full p-3 rounded bg-slate-800 border border-slate-700 text-white h-32"></textarea>
+                <button type="button" class="bg-blue-600 hover:bg-blue-700 w-full py-3 rounded font-bold transition">Send Feedback</button>
+            </form>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-slate-800 text-gray-500 text-sm">
+            &copy; 2026 Engineering Explorer Hub. No Watermarks. Built for Excellence.
+        </div>
+    </footer>
+
+</body>
+</html>
