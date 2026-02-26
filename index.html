@@ -1,167 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Explorer Hub | Interactive Portal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
-        .active-tab { border-bottom: 4px solid #3b82f6; color: #3b82f6; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Engineering Explorer Hub</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-slate-50 font-sans">
+<body>
 
-    <nav class="bg-slate-900 text-white p-5 sticky top-0 z-50 shadow-2xl">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-black tracking-tighter italic">ENG_HUB <i class="fas fa-microchip text-blue-400"></i></h1>
-            <div class="space-x-8 hidden md:flex font-bold text-sm">
-                <a href="#lab" class="hover:text-blue-400">VIRTUAL LAB</a>
-                <a href="#careers" class="hover:text-blue-400">CAREER PATHS</a>
-                <a href="#contact" class="hover:text-blue-400">SUPPORT</a>
-            </div>
-        </div>
-    </nav>
+<header>
+  <h1>Engineering Explorer Hub</h1>
+  <p>Discover, Design, and Build Through Engineering</p>
+  <nav>
+    <a href="projects.html">Projects</a>
+    <a href="tutorials.html">Tutorials</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-    <header class="gradient-bg text-white py-32 px-6 text-center relative overflow-hidden">
-        <div class="relative z-10">
-            <h2 class="text-6xl font-black mb-6 uppercase tracking-tight">Stop Dreaming. <span class="text-blue-500">Start Building.</span></h2>
-            <p class="text-xl text-slate-400 max-w-3xl mx-auto mb-10 font-light">The world's most interactive engineering playground for students. Test loads, explore careers, and build the future.</p>
-            <button onclick="document.getElementById('lab').scrollIntoView()" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-sm font-black transition-all transform hover:scale-105 shadow-xl">ENTER THE LAB</button>
-        </div>
-    </header>
+<section class="hero">
+  <h2>Engineering Solves Real-World Problems</h2>
+  <p>Explore how engineers design bridges, machines, circuits, and intelligent systems that shape modern life.</p>
+</section>
 
-    <section id="lab" class="container mx-auto py-20 px-6">
-        <div class="flex items-center justify-between mb-12">
-            <h3 class="text-4xl font-black text-slate-800 uppercase italic">01. Virtual Lab</h3>
-            <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-xs font-bold uppercase">Simulator Active</span>
-        </div>
+<section class="features">
+  <div>Robotics</div>
+  <div>Structures</div>
+  <div>Machines</div>
+  <div>Engineering Design</div>
+</section>
 
-        <div class="grid lg:grid-cols-2 gap-12">
-            <div class="bg-white p-8 rounded-2xl shadow-2xl border border-slate-200">
-                <h4 class="text-2xl font-bold mb-6 flex items-center"><i class="fas fa-calculator mr-3 text-blue-500"></i> Bridge Load Simulator</h4>
-                <p class="text-sm text-slate-500 mb-8">Test your popsicle stick bridge design before you build it.</p>
-                
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Beam Material Length (cm)</label>
-                        <input type="number" id="length" value="30" class="w-full p-4 bg-slate-100 rounded border-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Applied Load (kg)</label>
-                        <input type="range" id="loadRange" min="1" max="50" value="10" class="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer" oninput="updateLoadVal(this.value)">
-                        <span id="loadVal" class="text-blue-600 font-bold">10 kg</span>
-                    </div>
-                    <button onclick="simulateBridge()" class="w-full bg-slate-900 text-white py-4 font-black uppercase tracking-widest hover:bg-blue-600 transition">Run Stress Test</button>
-                    
-                    <div id="resultBox" class="hidden p-4 rounded text-center font-bold uppercase tracking-tighter"></div>
-                </div>
-            </div>
+<footer>
+  <p>© Engineering </p>
+</footer>
 
-            <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-2xl">
-                <h4 class="text-2xl font-bold mb-6">Project Blueprints</h4>
-                <div class="flex space-x-4 mb-8 border-b border-slate-700">
-                    <button onclick="showProj('beg')" id="btn-beg" class="pb-2 text-sm font-bold uppercase active-tab">Beginner</button>
-                    <button onclick="showProj('int')" id="btn-int" class="pb-2 text-sm font-bold uppercase">Intermediate</button>
-                    <button onclick="showProj('adv')" id="btn-adv" class="pb-2 text-sm font-bold uppercase">Advanced</button>
-                </div>
-                <div id="proj-content" class="min-h-[200px] animate-fade-in text-slate-300">
-                    <h5 class="text-xl font-bold text-white mb-2">Popsicle Bridge Challenge</h5>
-                    <p class="mb-4">Use truss physics to distribute weight. Focus on triangles; they are the strongest shape in engineering.</p>
-                    <ul class="text-sm space-y-2">
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Goal: Hold 20x own weight</li>
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Materials: Glue, Sticks, Weights</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="careers" class="bg-white py-24 px-6">
-        <div class="container mx-auto text-center">
-            <h3 class="text-4xl font-black mb-4 uppercase italic">02. Career Radar</h3>
-            <p class="text-slate-500 mb-12">Click a skill to see which engineering field fits you.</p>
-            
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button onclick="filterCareer('math')" class="px-6 py-2 border-2 border-slate-200 rounded-full hover:bg-blue-500 hover:text-white transition font-bold">Math & Calculus</button>
-                <button onclick="filterCareer('coding')" class="px-6 py-2 border-2 border-slate-200 rounded-full hover:bg-blue-500 hover:text-white transition font-bold">Software/AI</button>
-                <button onclick="filterCareer('hands')" class="px-6 py-2 border-2 border-slate-200 rounded-full hover:bg-blue-500 hover:text-white transition font-bold">Hands-on Building</button>
-            </div>
-
-            <div id="careerResult" class="max-w-md mx-auto p-8 bg-slate-100 rounded-xl border-2 border-dashed border-slate-300 min-h-[150px] flex items-center justify-center italic text-slate-500">
-                Select a skill to see your path...
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-slate-900 text-white py-20 px-6">
-        <div class="container mx-auto grid md:grid-cols-3 gap-12 border-b border-slate-800 pb-12">
-            <div class="col-span-1">
-                <h4 class="text-2xl font-black mb-4 italic">EPSTEIN FILES <span class="text-red-600">⚠</span></h4>
-                <p class="text-slate-400 text-sm mb-4">Official Engineering Hub. No watermarks. Pure data.</p>
-                <p class="text-sm text-blue-400 font-mono">End, St. Thomas, U.S. Virgin Islands</p>
-                <p class="text-sm font-mono mt-2">+63676767676</p>
-            </div>
-            <div class="col-span-2">
-                <form class="grid grid-cols-2 gap-4">
-                    <input type="text" placeholder="ENGINEER NAME" class="p-4 bg-slate-800 rounded border-none text-white font-mono">
-                    <input type="email" value="Epsteinfiles@gmail.com" class="p-4 bg-slate-800 rounded border-none text-white font-mono opacity-50 cursor-not-allowed" readonly>
-                    <textarea placeholder="FEEDBACK / PROJECT QUERY" class="col-span-2 p-4 bg-slate-800 rounded border-none text-white font-mono h-32"></textarea>
-                    <button type="button" class="col-span-2 bg-blue-600 p-4 font-black uppercase tracking-widest hover:bg-white hover:text-blue-600 transition">Transmit Data</button>
-                </form>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function updateLoadVal(val) {
-            document.getElementById('loadVal').innerText = val + ' kg';
-        }
-
-        function simulateBridge() {
-            const length = document.getElementById('length').value;
-            const load = document.getElementById('loadRange').value;
-            const res = document.getElementById('resultBox');
-            res.classList.remove('hidden');
-            
-            // Engineering formula simulation (Simplified)
-            if (load > (length / 2)) {
-                res.innerHTML = "RESULT: STRUCTURAL FAILURE! <i class='fas fa-bomb ml-2'></i>";
-                res.className = "p-4 rounded text-center font-bold uppercase bg-red-100 text-red-600 mt-4";
-            } else {
-                res.innerHTML = "RESULT: STRUCTURE STABLE <i class='fas fa-check-circle ml-2'></i>";
-                res.className = "p-4 rounded text-center font-bold uppercase bg-green-100 text-green-600 mt-4";
-            }
-        }
-
-        function showProj(type) {
-            const content = document.getElementById('proj-content');
-            const btns = ['btn-beg', 'btn-int', 'btn-adv'];
-            btns.forEach(b => document.getElementById(b).classList.remove('active-tab'));
-            document.getElementById('btn-' + type).classList.add('active-tab');
-
-            if (type === 'beg') {
-                content.innerHTML = `<h5 class="text-xl font-bold text-white mb-2">Popsicle Bridge Challenge</h5><p>Focus on triangles; they are the strongest shape. Hold 20kg using glue and 50 sticks.</p>`;
-            } else if (type === 'int') {
-                content.innerHTML = `<h5 class="text-xl font-bold text-white mb-2">Solar Desalination Plant</h5><p>Use thermodynamic principles to purify water using only solar heat and plastic sheets.</p>`;
-            } else {
-                content.innerHTML = `<h5 class="text-xl font-bold text-white mb-2">Autonomous Rover</h5><p>Program an Arduino to navigate a maze using ultrasonic sensors. Advanced logic required.</p>`;
-            }
-        }
-
-        function filterCareer(skill) {
-            const res = document.getElementById('careerResult');
-            if (skill === 'math') {
-                res.innerHTML = "<strong>Structural Engineer:</strong> You belong in the world of high-stress calculations and bridge design.";
-            } else if (skill === 'coding') {
-                res.innerHTML = "<strong>Robotics/Systems Engineer:</strong> You should focus on automation, AI, and control logic.";
-            } else {
-                res.innerHTML = "<strong>Mechanical Engineer:</strong> You are a builder. Focus on thermodynamics and engine dynamics.";
-            }
-            res.className = "max-w-md mx-auto p-8 bg-blue-50 rounded-xl border-2 border-blue-500 flex items-center justify-center text-blue-900 font-bold text-center";
-        }
-    </script>
+<script src="js/main.js"></script>
 </body>
 </html>
